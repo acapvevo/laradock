@@ -1413,6 +1413,11 @@ RUN if [ ${INSTALL_FAKETIME} = true ]; then \
     echo "/usr/lib/x86_64-linux-gnu/faketime/libfaketime.so.1" > /etc/ld.so.preload \
 ;fi
 
+# Install PDFTK
+RUN mkdir -p /usr/share/man/man1mkdir -p /usr/share/man/man1
+RUN apt-get update
+RUN apt-get install -y pdftk
+
 # Configure locale.
 ARG LOCALE=POSIX
 ENV LC_ALL ${LOCALE}
